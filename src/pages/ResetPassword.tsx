@@ -55,19 +55,19 @@ export default function ResetPassword() {
   ];
 
   return (
-    <div style={{ backgroundColor: "#FAFAF8" }} className="min-h-screen flex items-center justify-center px-4">
+    <div style={{ backgroundImage: "url('/Background.png')", backgroundSize: "cover", backgroundPosition: "center" }} className="min-h-screen flex items-center justify-center px-4">
       <div
         className="w-full max-w-md rounded-2xl p-8 shadow-lg"
-        style={{ backgroundColor: "#FFFFFF", border: "1px solid #E5E3DD" }}
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.75)", border: "1px solid #E5E3DD" }}
       >
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold tracking-tight" style={{ color: "#0F5132" }}>Umuhuza</h1>
-          <p className="text-sm mt-1" style={{ color: "#6B6B65" }}>Rwanda's Creative Talent Platform</p>
+          <p className="text-sm mt-1 font-medium" style={{ color: "#1A1A1A" }}>Rwanda's Creative Talent Platform</p>
         </div>
 
         <div className="mb-6">
           <h2 className="text-xl font-semibold" style={{ color: "#1A1A1A" }}>Set new password</h2>
-          <p className="text-sm mt-1" style={{ color: "#6B6B65" }}>Choose a strong password for your account.</p>
+          <p className="text-sm mt-1 font-medium" style={{ color: "#1A1A1A" }}>Choose a strong password for your account.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -110,9 +110,9 @@ export default function ResetPassword() {
           <Link
             to="/login"
             className="text-sm flex items-center justify-center gap-1.5 transition-colors"
-            style={{ color: "#6B6B65" }}
+            style={{ color: "#1A1A1A" }}
             onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#0F5132")}
-            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#6B6B65")}
+            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => (e.currentTarget.style.color = "#1A1A1A")}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
