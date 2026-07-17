@@ -637,8 +637,8 @@ function Register() {
           }
           className={`flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white transition duration-300 focus:outline-none focus:ring-4 focus:ring-green-200 ${
             formData.acceptTerms
-              ? "bg-green-700 hover:bg-green-800"
-              : "cursor-not-allowed bg-green-300"
+              ? "bg-green-700 hover:bg-green-500"
+              : "cursor-not-allowed bg-green-800"
           } disabled:cursor-not-allowed disabled:opacity-70`}
         >
           {submitting ? (
@@ -699,7 +699,7 @@ function SelectionCard({
       <div
         className={`grid h-10 w-10 place-items-center rounded-xl ${
           selected
-            ? "bg-green-300 text-green-800"
+            ? "bg-green-800 text-green-500"
             : "bg-gray-100 text-gray-600"
         }`}
       >
