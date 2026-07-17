@@ -1,123 +1,143 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import DashboardPage from './pages/DashboardPage';
+import JobsPage from './pages/JobsPage';
 
-//fixing deployment
-function App() {
-  const [count, setCount] = useState(0)
+function DashboardLayout() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="flex min-h-screen" style={{ background: 'var(--background)' }}>
+      {/* Mobile overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-30 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-      <div className="ticks"></div>
+      {/* Sidebar */}
+      <Sidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      {/* Main content */}
+      <main
+        className="flex-1 min-h-screen lg:ml-0 transition-all duration-300"
+        style={{ marginLeft: 0 }}
+      >
+        <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+          <Outlet />
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </main>
+    </div>
+  );
 }
 
-export default App
+function ProfilePage() {
+  return (
+    <div className="max-w-3xl mx-auto">
+      <h1
+        style={{ fontFamily: 'var(--heading)', color: 'var(--text)' }}
+        className="text-2xl font-bold mb-6"
+      >
+        Profile
+      </h1>
+      <div
+        style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
+        className="rounded-2xl p-6 sm:p-8 shadow-sm"
+      >
+        <div className="flex items-center gap-4 mb-6">
+          <div
+            style={{ background: 'var(--primary-700)' }}
+            className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-bold"
+          >
+            JD
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--text)' }}>
+              John Doe
+            </h2>
+            <p style={{ color: 'var(--text-light)' }}>Senior Product Designer</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { label: 'Email', value: 'john@example.com' },
+            { label: 'Location', value: 'San Francisco, CA' },
+            { label: 'Experience', value: '8 years' },
+            { label: 'Specialization', value: 'UI/UX Design' },
+          ].map(item => (
+            <div key={item.label}>
+              <p className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--text-light)' }}>
+                {item.label}
+              </p>
+              <p className="text-sm font-medium" style={{ color: 'var(--text)' }}>
+                {item.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ApplicationsPage() {
+  return (
+    <div className="max-w-3xl mx-auto">
+      <h1
+        style={{ fontFamily: 'var(--heading)', color: 'var(--text)' }}
+        className="text-2xl font-bold mb-6"
+      >
+        Applications
+      </h1>
+      <div className="space-y-4">
+        {[
+          { role: 'Senior UI/UX Designer', company: 'Figma', status: 'Under Review', color: 'var(--warning)' },
+          { role: 'Product Designer', company: 'Notion', status: 'Interview', color: 'var(--primary-700)' },
+          { role: 'Brand Designer', company: 'Stripe', status: 'Applied', color: 'var(--text-light)' },
+        ].map(app => (
+          <div
+            key={app.role}
+            style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
+            className="rounded-2xl p-5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+          >
+            <div>
+              <p className="font-semibold text-sm" style={{ color: 'var(--text)' }}>
+                {app.role}
+              </p>
+              <p className="text-sm" style={{ color: 'var(--text-light)' }}>
+                {app.company}
+              </p>
+            </div>
+            <span
+              style={{ background: app.color + '18', color: app.color, border: `1px solid ${app.color}40` }}
+              className="text-xs font-semibold px-3 py-1 rounded-full w-fit"
+            >
+              {app.status}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<DashboardLayout />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="applications" element={<ApplicationsPage />} />
+          <Route path="jobs" element={<JobsPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
