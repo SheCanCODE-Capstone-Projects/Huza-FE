@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+//add useLocation import when backend is ready
+import { Link, useNavigate } from "react-router-dom";
 // TODO: uncomment when backend is ready
 // import axios from "axios";
 
-interface LocationState {
-  email: string;
-  otp: string;
-}
+// interface LocationState {
+//   email: string;
+//   otp: string;
+// }
 
 interface PasswordField {
   id: string;
@@ -16,9 +17,9 @@ interface PasswordField {
 }
 
 export default function ResetPassword() {
-  const { state } = useLocation();
-  const email = (state as LocationState)?.email ?? "";
-  const otp = (state as LocationState)?.otp ?? "";
+  // const { state } = useLocation();
+  // const email = (state as LocationState)?.email ?? "";
+  // const otp = (state as LocationState)?.otp ?? "";
   const navigate = useNavigate();
   const [password, setPassword] = useState<string>("");
   const [confirm, setConfirm] = useState<string>("");
