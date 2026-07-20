@@ -10,6 +10,24 @@
   --color-gold: #cda552;
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
+
+  --color-primary: #0f5132;
+  --color-primary-hover: #0b3d26;
+  --color-primary-light: #9fd8b8;
+  --color-accent: #d4a94d;
+  --color-page: #fafaf8;
+  --color-surface: #ffffff;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #6b6b65;
+  --color-border-light: #e5e3dd;
+  --color-success: #2e7d4f;
+  --color-warning: #b8860b;
+  --color-danger: #b42318;
+  --color-danger-light: #fef3f2;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -21,5 +39,8 @@
 }
 
 body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
   font-family: var(--font-sans);
 }
