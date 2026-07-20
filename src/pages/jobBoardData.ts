@@ -12,6 +12,11 @@ export interface Job {
   skills: string[];
   category: string;
   experience: 'Junior' | 'Mid-Level' | 'Senior' | 'Lead';
+  status?: 'Active' | 'Closed' | 'Draft';
+  applicantCount?: number;
+  inReviewCount?: number;
+  icon?: string;
+  filedBy?: string;
 }
 
 export interface Company {
@@ -33,12 +38,12 @@ export interface Testimonial {
 }
 
 export const JOBS: Job[] = [
-  { id: 1, title: 'Senior UI/UX Designer', company: 'Figma', companyInitials: 'FG', companyColor: '#7C3AED', location: 'San Francisco, CA', salary: '$120k–$160k', workMode: 'Remote', jobType: 'Full Time', posted: '2 days ago', skills: ['Figma', 'Prototyping', 'User Research'], category: 'UI/UX Design', experience: 'Senior' },
-  { id: 2, title: 'Product Designer', company: 'Notion', companyInitials: 'NT', companyColor: '#000000', location: 'New York, NY', salary: '$100k–$140k', workMode: 'Hybrid', jobType: 'Full Time', posted: '1 day ago', skills: ['Figma', 'Design Systems', 'Wireframing'], category: 'Product Design', experience: 'Mid-Level' },
-  { id: 3, title: 'Brand Designer', company: 'Stripe', companyInitials: 'ST', companyColor: '#635BFF', location: 'Remote', salary: '$90k–$120k', workMode: 'Remote', jobType: 'Full Time', posted: '3 days ago', skills: ['Illustrator', 'Branding', 'Typography'], category: 'Branding', experience: 'Mid-Level' },
-  { id: 4, title: 'Motion Designer', company: 'Airbnb', companyInitials: 'AB', companyColor: '#FF5A5F', location: 'Los Angeles, CA', salary: '$95k–$130k', workMode: 'Hybrid', jobType: 'Full Time', posted: '5 days ago', skills: ['After Effects', 'Cinema 4D', 'Lottie'], category: 'Motion Design', experience: 'Senior' },
-  { id: 5, title: 'Junior Graphic Designer', company: 'Mailchimp', companyInitials: 'MC', companyColor: '#FFE01B', location: 'Atlanta, GA', salary: '$55k–$75k', workMode: 'On-site', jobType: 'Full Time', posted: '1 week ago', skills: ['Photoshop', 'Illustrator', 'InDesign'], category: 'Graphic Design', experience: 'Junior' },
-  { id: 6, title: 'Web Designer', company: 'Shopify', companyInitials: 'SH', companyColor: '#96BF48', location: 'Toronto, Canada', salary: '$80k–$110k', workMode: 'Remote', jobType: 'Contract', posted: '4 days ago', skills: ['HTML/CSS', 'Figma', 'Webflow'], category: 'Web Design', experience: 'Mid-Level' },
+  { id: 1, title: 'Senior UI/UX Designer', company: 'Figma', companyInitials: 'FG', companyColor: '#7C3AED', location: 'San Francisco, CA', salary: '$120k–$160k', workMode: 'Remote', jobType: 'Full Time', posted: '2 days ago', skills: ['Figma', 'Prototyping', 'User Research'], category: 'UI/UX Design', experience: 'Senior', status: 'Active', applicantCount: 42, inReviewCount: 18 },
+  { id: 2, title: 'Product Designer', company: 'Notion', companyInitials: 'NT', companyColor: '#000000', location: 'New York, NY', salary: '$100k–$140k', workMode: 'Hybrid', jobType: 'Full Time', posted: '1 day ago', skills: ['Figma', 'Design Systems', 'Wireframing'], category: 'Product Design', experience: 'Mid-Level', status: 'Active', applicantCount: 128, inReviewCount: 56 },
+  { id: 3, title: 'Brand Designer', company: 'Stripe', companyInitials: 'ST', companyColor: '#635BFF', location: 'Remote', salary: '$90k–$120k', workMode: 'Remote', jobType: 'Full Time', posted: '3 days ago', skills: ['Illustrator', 'Branding', 'Typography'], category: 'Branding', experience: 'Mid-Level', status: 'Closed', applicantCount: 84, inReviewCount: 1, filedBy: 'Elias M.' },
+  { id: 4, title: 'Motion Designer', company: 'Airbnb', companyInitials: 'AB', companyColor: '#FF5A5F', location: 'Los Angeles, CA', salary: '$95k–$130k', workMode: 'Hybrid', jobType: 'Full Time', posted: '5 days ago', skills: ['After Effects', 'Cinema 4D', 'Lottie'], category: 'Motion Design', experience: 'Senior', status: 'Active', applicantCount: 31, inReviewCount: 12 },
+  { id: 5, title: 'Junior Graphic Designer', company: 'Mailchimp', companyInitials: 'MC', companyColor: '#FFE01B', location: 'Atlanta, GA', salary: '$55k–$75k', workMode: 'On-site', jobType: 'Full Time', posted: '1 week ago', skills: ['Photoshop', 'Illustrator', 'InDesign'], category: 'Graphic Design', experience: 'Junior', status: 'Closed', applicantCount: 12, inReviewCount: 0, filedBy: 'Aisha K.' },
+  { id: 6, title: 'Web Designer', company: 'Shopify', companyInitials: 'SH', companyColor: '#96BF48', location: 'Toronto, Canada', salary: '$80k–$110k', workMode: 'Remote', jobType: 'Contract', posted: '4 days ago', skills: ['HTML/CSS', 'Figma', 'Webflow'], category: 'Web Design', experience: 'Mid-Level', status: 'Draft', applicantCount: 0, inReviewCount: 0 },
 ];
 
 export const COMPANIES: Company[] = [
