@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ApplicantsPage from "./pages/ApplicantsPage";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="/recruiter/applicants" element={<ApplicantsPage />} />
+      <Route path="/recruiter/settings" element={<SettingsPage />} />
     </Routes>
   );
 }
