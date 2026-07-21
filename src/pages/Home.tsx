@@ -15,7 +15,7 @@ export default function Home() {
   }, [dark]);
 
   return (
-    <main className="bg-cream dark:bg-black">
+    <main className="bg-cream dark:bg-black px-0 w-full max-w-none">
       <Navbar dark={dark} setDark={setDark} />
       <Hero />
       <Categories />

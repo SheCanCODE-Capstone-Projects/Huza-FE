@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import { AuthProvider } from "./context/AuthContext";
+import { RecruiterProvider } from "./stores/recruiterStore";
 import "./index.css";
 
 createRoot(
@@ -12,7 +13,9 @@ createRoot(
   <StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <RecruiterProvider>
+          <App />
+        </RecruiterProvider>
       </AuthProvider>
     </BrowserRouter>
   </StrictMode>,

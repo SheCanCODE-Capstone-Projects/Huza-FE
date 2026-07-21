@@ -59,7 +59,7 @@ export default function FeaturedCreators() {
   const visible = creators.slice(start, start + PER_PAGE);
 
   return (
-    <section className="bg-cream dark:bg-black px-5 md:px-10 py-10 md:py-16">
+    <section className="bg-cream dark:bg-black px-0 md:px-0 py-10 md:py-16 w-full max-w-none">
       <p className="text-xs tracking-widest text-olive dark:text-gold font-semibold mb-2">
         VERIFIED · RWANDA
       </p>
@@ -89,7 +89,7 @@ export default function FeaturedCreators() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-2">
         {visible.map((c) => (
           <div key={c.name} className="rounded-xl overflow-hidden border border-forest/10 dark:border-white/10 bg-white dark:bg-white/5">
             <div className="aspect-square bg-gray-300 dark:bg-white/10 relative">

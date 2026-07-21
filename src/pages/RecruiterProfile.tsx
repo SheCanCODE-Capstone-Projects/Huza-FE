@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// TODO: uncomment when backend is ready
-// import axios from "axios";
+
 import { useRecruiter } from "../stores/recruiterStore";
 
 const GREEN = "#0F5132";
@@ -66,39 +65,28 @@ function MetaRow({ icon, text }: { icon: string; text: string }) {
 export default function RecruiterProfile() {
   const navigate = useNavigate();
   const { profile } = useRecruiter();
+  console.log("RecruiterStore profile:", profile);
   const [finishing, setFinishing] = useState<boolean>(false);
 
   async function handleEditProfile() {
-    // Opens the full editable profile form.
+
     navigate("/recruiter/profile/edit");
   }
 
   function handleViewPublicPage() {
-    // Opens the public-facing profile page.
+  
     navigate(`/recruiter/public/${profile.publicSlug}`);
   }
 
   async function handleFinishSetup() {
     setFinishing(true);
-    // TODO: uncomment when backend is ready
-    // try {
-    //   await axios.post("/api/recruiter/profile/complete");
-    // } catch (err) {
-    //   console.error(err);
-    //   setFinishing(false);
-    //   return;
-    // }
+    
     setFinishing(false);
     navigate("/recruiter/profile/setup");
   }
 
   async function handleLogout() {
-    // TODO: uncomment when backend is ready
-    // try {
-    //   await axios.post("/api/auth/logout");
-    // } catch (err) {
-    //   console.error(err);
-    // }
+    
     navigate("/login");
   }
 
@@ -375,4 +363,5 @@ export default function RecruiterProfile() {
       </div>
     </div>
   );
+  
 }
